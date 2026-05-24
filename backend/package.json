@@ -1,0 +1,13 @@
+{
+  "name": "ruankao-backend",
+  "version": "1.0.0",
+  "description": "Ruankao Quiz Caching API Backend",
+  "main": "server.js",
+  "type": "module",
+  "author": "du",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}

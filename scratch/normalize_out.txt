@@ -1,0 +1,7 @@
+Char: '⽤' -> Normalized: '用'
+Char: '⼀' -> Normalized: '一'
+Char: '⼆' -> Normalized: '二'
+Char: '⾏' -> Normalized: '行'
+Char: '⼦' -> Normalized: '子'
+Char: '⾮' -> Normalized: '非'
+Char: '⽂' -> Normalized: '文'

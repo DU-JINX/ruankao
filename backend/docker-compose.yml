@@ -1,0 +1,54 @@
+# @author du
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: ruankao-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ruankao_user
+      POSTGRES_PASSWORD: ruankao_user_pwd
+      POSTGRES_DB: ruankao_quiz
+    ports:
+      - "127.0.0.1:54321:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ruankao_user -d ruankao_quiz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: ruankao-backend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_USER=ruankao_user
+      - DB_PASSWORD=ruankao_user_pwd
+      - DB_NAME=ruankao_quiz
+      - DB_PORT=5432
+      - OPENAI_PROXY_URL=http://host.docker.internal:8080/v1/chat/completions
+      - OPENAI_API_KEY=sk-b2b0547b2049ee833cedf442a26ed258f0be3a6ad581561000da1bc635580dc9
+      - OPENAI_MODEL=gpt-5.4
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      db:
+        condition: service_healthy

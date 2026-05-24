@@ -1,0 +1,9 @@
+{
+  "name": "软考题库",
+  "short_name": "软考题库",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ec",
+  "theme_color": "#1f4b45",
+  "icons": []
+}

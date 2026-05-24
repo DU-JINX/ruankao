@@ -1,0 +1,26 @@
+Kangxi Radicals found:
+Char: '⽤' (\u2f64), Count: 16, Standard: 目
+Char: '⼀' (\u2f00), Count: 13, Standard: UNKNOWN
+Char: '⼆' (\u2f06), Count: 13, Standard: UNKNOWN
+Char: '⾏' (\u2f8f), Count: 12, Standard: 齿
+Char: '⼦' (\u2f26), Count: 11, Standard: 二
+Char: '⾮' (\u2fae), Count: 7, Standard: UNKNOWN
+Char: '⽂' (\u2f42), Count: 7, Standard: UNKNOWN
+Char: '⽅' (\u2f45), Count: 5, Standard: UNKNOWN
+Char: '⼤' (\u2f24), Count: 3, Standard: UNKNOWN
+Char: '⽆' (\u2f46), Count: 3, Standard: UNKNOWN
+Char: '⼩' (\u2f29), Count: 3, Standard: UNKNOWN
+Char: '⾃' (\u2f83), Count: 3, Standard: UNKNOWN
+Char: '⾼' (\u2fbc), Count: 3, Standard: UNKNOWN
+Char: '⼊' (\u2f0a), Count: 2, Standard: UNKNOWN
+Char: '⾯' (\u2faf), Count: 2, Standard: UNKNOWN
+Char: '⽽' (\u2f7d), Count: 2, Standard: UNKNOWN
+Char: '⽣' (\u2f63), Count: 2, Standard: UNKNOWN
+Char: '⽐' (\u2f50), Count: 1, Standard: UNKNOWN
+Char: '⽴' (\u2f74), Count: 1, Standard: UNKNOWN
+Char: '⼴' (\u2f34), Count: 1, Standard: UNKNOWN
+Char: '⼲' (\u2f32), Count: 1, Standard: UNKNOWN
+Char: '⼉' (\u2f09), Count: 1, Standard: UNKNOWN
+Char: '⼯' (\u2f2f), Count: 1, Standard: 口
+Char: '⽬' (\u2f6c), Count: 1, Standard: UNKNOWN
+Char: '⼈' (\u2f08), Count: 1, Standard: 人

@@ -1,0 +1,10 @@
+# author du
+node_modules/
+dist/
+*.log
+*.tar.gz
+.DS_Store
+temp_pdf/
+data/temp_pdf/
+.env
+.env.*

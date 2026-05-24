@@ -1465,6 +1465,85 @@ h1 {
   box-shadow: 0 4px 8px rgba(26, 188, 156, 0.2);
 }
 
+/* 移动端标签切换栏 */
+.mobileTabBar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobileTabBar {
+    display: flex;
+    background: var(--panel-2);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .mobileTabBar button {
+    flex: 1;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .mobileTabBar button.active {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 2px 6px rgba(31, 75, 69, 0.2);
+  }
+
+  /* 当激活 question 标签时，隐藏原文对比和 AI 面板 */
+  .mainAndAiLayout.mobile-tab-question .rawHtmlPanel,
+  .mainAndAiLayout.mobile-tab-question .aiPanel {
+    display: none !important;
+  }
+
+  /* 当激活 raw 标签时，在主栏隐藏问题内容与 AI 面板，并使原文全宽显示 */
+  .mainAndAiLayout.mobile-tab-raw .quizSurface .questionBody,
+  .mainAndAiLayout.mobile-tab-raw .quizSurface .result,
+  .mainAndAiLayout.mobile-tab-raw .quizSurface .prior,
+  .mainAndAiLayout.mobile-tab-raw .mockExamSurface .questionBody,
+  .mainAndAiLayout.mobile-tab-raw .aiPanel {
+    display: none !important;
+  }
+
+  .mainAndAiLayout.mobile-tab-raw .rawHtmlPanel {
+    display: block !important;
+    margin-top: 0;
+    border-radius: 8px;
+    border-left: none;
+  }
+
+  /* 当激活 ai 标签时，隐藏题目模块与原文对比，使 AI 面板全宽显示 */
+  .mainAndAiLayout.mobile-tab-ai .quizSurface,
+  .mainAndAiLayout.mobile-tab-ai .utility,
+  .mainAndAiLayout.mobile-tab-ai .answerSheetCard,
+  .mainAndAiLayout.mobile-tab-ai .rawHtmlPanel {
+    display: none !important;
+  }
+
+  .mainAndAiLayout.mobile-tab-ai .aiPanel {
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: calc(100vh - 280px) !important;
+  }
+
+  .mainAndAiLayout.mobile-tab-ai .aiPanel .aiChatSection {
+    margin-top: 16px;
+    height: 240px;
+    max-height: 240px;
+  }
+}
+
+
 
 
 

@@ -1346,7 +1346,8 @@ function MockQuestionBody({
   chooseOption,
   showRawHtml,
   compareTab,
-  setCompareTab
+  setCompareTab,
+  mobileTab
 }) {
   return (
     <article className="questionBody">
@@ -1369,7 +1370,7 @@ function MockQuestionBody({
         })}
       </div>
 
-      {showRawHtml && (
+      {(showRawHtml || mobileTab === "raw") && (
         <RawHtmlPanel
           current={current}
           compareTab={compareTab}
@@ -1379,6 +1380,7 @@ function MockQuestionBody({
     </article>
   );
 }
+
 
 // 模考底部导航按钮与答题进度卡组件
 function MockExamFooter({ idx, total, setIdx, submitExam, questions, answers }) {
@@ -1477,10 +1479,42 @@ function MockExamView({ mockExam, setMockExam, store, setStore }) {
     setMockExam(null);
   }
 
+  const [mobileTab, setMobileTab] = useState("question");
+
+  useEffect(() => {
+    setMobileTab("question");
+  }, [idx]);
+
   return (
-    <div style={{ marginTop: "14px" }} className={`mainAndAiLayout ${showAi ? "withAi" : ""}`}>
+    <div style={{ marginTop: "14px" }} className={`mainAndAiLayout ${showAi ? "withAi" : ""} mobile-tab-${mobileTab}`}>
       <div style={{ flex: 1, minWidth: 0 }}>
         <MockExamHeader mockExam={mockExam} timeLeft={timeLeft} />
+        <div className="mobileTabBar">
+          <button
+            className={mobileTab === "question" ? "active" : ""}
+            onClick={() => { setMobileTab("question"); }}
+          >
+            题目
+          </button>
+          <button
+            className={mobileTab === "raw" ? "active" : ""}
+            onClick={() => {
+              setMobileTab("raw");
+              setShowRawHtml(true);
+            }}
+          >
+            看原文
+          </button>
+          <button
+            className={mobileTab === "ai" ? "active" : ""}
+            onClick={() => {
+              setMobileTab("ai");
+              setShowAi(true);
+            }}
+          >
+            AI 讲解
+          </button>
+        </div>
         <div className="mockExamSurface">
           <MockQuestionHead
             idx={idx}
@@ -1498,6 +1532,7 @@ function MockExamView({ mockExam, setMockExam, store, setStore }) {
             showRawHtml={showRawHtml}
             compareTab={compareTab}
             setCompareTab={setCompareTab}
+            mobileTab={mobileTab}
           />
           <MockExamFooter
             idx={idx}
@@ -1511,12 +1546,16 @@ function MockExamView({ mockExam, setMockExam, store, setStore }) {
       </div>
       <AiAnalysisPanel
         current={current}
-        show={showAi}
-        onClose={() => { setShowAi(false); }}
+        show={showAi || mobileTab === "ai"}
+        onClose={() => {
+          setShowAi(false);
+          setMobileTab("question");
+        }}
       />
     </div>
   );
 }
+
 
 // 刷题模式题目头部组件
 function QuizQuestionHead({
@@ -1572,7 +1611,8 @@ function QuizQuestionBody({
   choose,
   showRawHtml,
   compareTab,
-  setCompareTab
+  setCompareTab,
+  mobileTab
 }) {
   return (
     <article className="questionBody">
@@ -1596,7 +1636,7 @@ function QuizQuestionBody({
           );
         })}
       </div>
-      {showRawHtml && (
+      {(showRawHtml || mobileTab === "raw") && (
         <RawHtmlPanel
           current={current}
           compareTab={compareTab}
@@ -1606,6 +1646,7 @@ function QuizQuestionBody({
     </article>
   );
 }
+
 
 // 刷题模式结果与上一次进度展示组件
 function QuizResultPanel({ revealed, isCorrect, answer, picked, current, progress }) {
@@ -1685,9 +1726,42 @@ function QuizView({
   if (!current) {
     return <div className="empty">当前筛选没有题目</div>;
   }
+
+  const [mobileTab, setMobileTab] = useState("question");
+
+  useEffect(() => {
+    setMobileTab("question");
+  }, [index]);
+
   return (
-    <div className={`mainAndAiLayout ${showAi ? "withAi" : ""}`}>
+    <div className={`mainAndAiLayout ${showAi ? "withAi" : ""} mobile-tab-${mobileTab}`}>
       <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="mobileTabBar">
+          <button
+            className={mobileTab === "question" ? "active" : ""}
+            onClick={() => { setMobileTab("question"); }}
+          >
+            题目
+          </button>
+          <button
+            className={mobileTab === "raw" ? "active" : ""}
+            onClick={() => {
+              setMobileTab("raw");
+              setShowRawHtml(true);
+            }}
+          >
+            看原文
+          </button>
+          <button
+            className={mobileTab === "ai" ? "active" : ""}
+            onClick={() => {
+              setMobileTab("ai");
+              setShowAi(true);
+            }}
+          >
+            AI 讲解
+          </button>
+        </div>
         <main className="quizSurface">
           <QuizQuestionHead
             index={index}
@@ -1710,6 +1784,7 @@ function QuizView({
             showRawHtml={showRawHtml}
             compareTab={compareTab}
             setCompareTab={setCompareTab}
+            mobileTab={mobileTab}
           />
           <QuizResultPanel
             revealed={revealed}
@@ -1735,12 +1810,16 @@ function QuizView({
       </div>
       <AiAnalysisPanel
         current={current}
-        show={showAi}
-        onClose={() => { setShowAi(false); }}
+        show={showAi || mobileTab === "ai"}
+        onClose={() => {
+          setShowAi(false);
+          setMobileTab("question");
+        }}
       />
     </div>
   );
 }
+
 
 /**
  * 对章节或学科名称进行自然数字排序

@@ -28,7 +28,7 @@ const STORAGE_KEY = "ruankao-quiz-state-v1";
 
 // 备战计划配置数据
 const STUDY_PLAN_DATA = {
-  startDate: "2026-05-24",
+  startDate: "2026-05-31",
   weeks: [
     {
       weekNum: 1,
@@ -349,7 +349,7 @@ const STUDY_PLAN_DATA = {
   milestones: [
     {
       id: "m1",
-      date: "7月04日 (第6周周末)",
+      date: "7月12日 (第6周周末)",
       name: "第 6 周末阶段性验收",
       format: "随机 80 道选择题 (计算机系统、程序语言、数据结构、操作系统、软件工程)",
       target: "上午题 >= 38 分",
@@ -366,7 +366,7 @@ const STUDY_PLAN_DATA = {
     },
     {
       id: "m2",
-      date: "8月01日 (第10周周末)",
+      date: "8月09日 (第10周周末)",
       name: "第 10 周末核心知识验收",
       format: "随机 80 道选择题 (包含网络、安全、UML、设计模式与数据库)",
       target: "上午题 >= 42 分",
@@ -389,7 +389,7 @@ const STUDY_PLAN_DATA = {
     },
     {
       id: "m3",
-      date: "9月01日 (第15周初)",
+      date: "9月13日 (第15周初)",
       name: "首套完整真题模底 (2020.11)",
       format: "全随机 80 道真题模底",
       target: "上午题 >= 45 分",
@@ -398,7 +398,7 @@ const STUDY_PLAN_DATA = {
     },
     {
       id: "m4",
-      date: "10月01日 (第19周初)",
+      date: "10月11日 (第19周初)",
       name: "2022.11 真题模拟",
       format: "全随机 80 道真题模拟",
       target: "上午题 >= 50 分",
@@ -407,7 +407,7 @@ const STUDY_PLAN_DATA = {
     },
     {
       id: "m5",
-      date: "10月17日 (第21周末)",
+      date: "10月18日 (第21周末)",
       name: "2023.11 真题模拟",
       format: "全随机 80 道下午与下午选择题模拟",
       target: "上午题 >= 48 分",
